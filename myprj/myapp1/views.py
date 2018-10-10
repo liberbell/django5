@@ -4,4 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     # return HttpResponse('<h1>Hello, myapp1!</h1>')
-    return render(request, 'myapp1/index.html')
+    template = loader.get_template('myapp/index.html')
+    context = {'fname':'hide'}
+    return HttpResponse(template.render( context, request))
+    # return render(request, 'myapp1/index.html')
