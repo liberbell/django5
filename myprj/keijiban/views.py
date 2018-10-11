@@ -5,4 +5,4 @@ from keijiban.forms import KakikomiForm
 # Create your views here.
 def kakikomi(request):
     f = KakikomiForm()
-    return HttpResponse(f)
+    return HttpResponse(f.as_table())
