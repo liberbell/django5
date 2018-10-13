@@ -4,10 +4,19 @@ from keijiban.forms import KakikomiForm
 
 # Create your views here.
 def kakikomi(request):
-    f = KakikomiForm({
-        'name' : ' hide',
-        'email' : 'hide@example.com',
-        'body' : 'Hello this is django form'}
-        )
+    # f = KakikomiForm({
+    #     'name' : ' hide',
+    #     'email' : 'hide@example.com',
+    #     'body' : 'Hello this is django form'}
+    #     )
     # return HttpResponse(f.as_table())
-    return render(request, 'keijiban/kakikomiform.html', {'form1': f} )
+    # return render(request, 'keijiban/kakikomiform.html', {'form1': f} )
+    if request.method == 'post':
+        f = KakikomiForm(request.POST)
+    else:
+        f = KakikomiForm()
+    return render(
+        request,
+        'keijiban/kakikomiform.html',
+        {'form1' : f}
+    )
