@@ -4,3 +4,9 @@ class KakikomiForm(forms.Form):
      name = forms.CharField()
      email = forms.EmailField(required=False)
      body = forms.CharField(widget=forms.Textarea)
+
+     def clean_body(self):
+         body = self.cleaned_data['body']
+         if (body.find('<') != -l or body.find('>') != -l):
+             raise forms.ValidationError('Tags are not allowed.')
+         return body
