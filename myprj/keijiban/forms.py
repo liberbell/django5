@@ -1,7 +1,7 @@
 from django import forms
 
 class KakikomiForm(forms.Form):
-     name = forms.CharField()
+     name = forms.CharField(max_length=30)
      email = forms.EmailField(required=False)
      body = forms.CharField(widget=forms.Textarea)
 
