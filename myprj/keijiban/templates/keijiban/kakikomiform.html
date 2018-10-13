@@ -8,7 +8,11 @@
 <body>
 <h1>掲示板 - 書き込みフォーム</h1>
 <form action="" method="post">
-  <table>{{form1.as_table}}</table>
+{% csrf_token %}
+  <table>
+    {{form1.as_table}}
+    <tr><td colspan='2'><input type="submit" value="Submit"></td></tr>
+  </table>
 </form>
 </body>
 </html>
