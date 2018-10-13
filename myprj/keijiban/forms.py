@@ -7,6 +7,7 @@ class KakikomiForm(forms.Form):
 
      def clean_body(self):
          body = self.cleaned_data['body']
-         if (body.find('<') != -l or body.find('>') != -l):
+         # if(body.find('<') != -l or body.find('>') != -l):
+         if(body.find('<') != -1 or body.find('>') != -1):
              raise forms.ValidationError('Tags are not allowed.')
          return body
