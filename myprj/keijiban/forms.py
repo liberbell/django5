@@ -5,9 +5,14 @@ class KakikomiForm(forms.Form):
      email = forms.EmailField(required=False)
      body = forms.CharField(widget=forms.Textarea)
 
+     # def clean_body(self):
+     #     body = self.cleaned_data['body']
+     #     # if(body.find('<') != -l or body.find('>') != -l):
+     #     if(body.find('<') != -1 or body.find('>') != -1):
+     #         raise forms.ValidationError('Tags are not allowed.')
+     #     return body
      def clean_body(self):
-         body = self.cleaned_data['body']
-         # if(body.find('<') != -l or body.find('>') != -l):
-         if(body.find('<') != -1 or body.find('>') != -1):
-             raise forms.ValidationError('Tags are not allowed.')
-         return body
+        body = self.cleaned_data['body']
+        if(body.find('<') != -1 or body.find('>') != -1):
+            raise forms.ValidationError("Tags are not allowed.")
+        return body
