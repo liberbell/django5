@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp1',
     'keijiban'
+    'widget-tweaks'
 ]
 
 MIDDLEWARE = [
