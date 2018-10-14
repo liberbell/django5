@@ -38,6 +38,18 @@ def login(request):
             else:
                 return render(request, 'myapp1/login.html',
                 {
-                    'form':from,
+                    'form':form,
                     'mag':'Authentication failed'
                 })
+        else:
+            return render(request,'myapp1/login.html',
+            {
+                'form':form,
+                'msg':'Invalid data'
+            })
+    else:
+        form = LoginForm()
+        return render(
+            request,
+            'myapp1/login.html',
+            {'form':form, 'msg':''})
