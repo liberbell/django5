@@ -35,3 +35,9 @@ def login(request):
 
             if username == 'user1' and password == 'secret':
                 return HttpResponseRedirect('/myapp1/')
+            else:
+                return render(request, 'myapp1/login.html',
+                {
+                    'form':from,
+                    'mag':'Authentication failed'
+                })
