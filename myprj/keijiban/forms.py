@@ -16,3 +16,7 @@ class KakikomiForm(forms.Form):
         if(body.find('<') != -1 or body.find('>') != -1):
             raise forms.ValidationError("Tags are not allowed.")
         return body
+
+    class LoginForm(forms.Form):
+        username = forms.CharField(max_length=30)
+        password = forms.CharField(widget=forms.PasswordInput)
